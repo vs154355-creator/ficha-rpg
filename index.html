@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Ficha RPG</title>
+
+<style>
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #1c1a27, #2b2336);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  color: #eee;
+}
+
+.ficha {
+  width: 100%;
+  max-width: 1300px;
+}
+
+/* TOPO */
+.topo {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.topo h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.topo span {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+/* CARD */
+.card {
+  background: #2e273a;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 6px;
+}
+
+h3 {
+  margin: 10px 0 5px;
+  font-size: 14px;
+}
+
+/* GRID PRINCIPAL */
+.corpo {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 11px;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+/* INPUTS */
+input, select, textarea {
+  background: #1f1b29;
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 8px;
+  color: #fff;
+  font-size: 13px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #9b6cff;
+  box-shadow: 0 0 10px rgba(155,108,255,0.6);
+}
+
+/* ============================= */
+/* ÁREA PADRÃO (TODAS IGUAIS) */
+/* ============================= */
+
+.area-padrao {
+  min-height: 200px;
+  resize: vertical;
+}
+
+/* ============================= */
+/* ARQUÉTIPO ORGANIZADO */
+/* ============================= */
+
+.arquetipo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.arquetipo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* TABELA */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+th {
+  text-align: left;
+  opacity: 0.6;
+  padding-bottom: 8px;
+}
+
+td {
+  padding: 6px 0;
+}
+
+td select {
+  width: 80px;
+}
+
+/* RODAPÉ */
+.rodape {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1000px) {
+  .corpo {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .arquetipo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Faz os textareas ocuparem toda largura do card */
+.card textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Garante que blocos internos usem toda largura */
+.card > div {
+  width: 100%;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="ficha">
+
+  <header class="topo">
+    <h1>AGENTE CRONOLÓGICO</h1>
+    <span>Setor Temporal Classificado</span>
+  </header>
+
+  <section class="card linha-info">
+    <div class="campo"><label>Nome</label><input type="text"></div>
+    <div class="campo"><label>Classe</label><input type="text"></div>
+    <div class="campo"><label>Nível</label><input type="number" value="1"></div>
+    <div class="campo"><label>Filiação</label><input type="text"></div>
+  </section>
+
+  <div class="corpo">
+
+    <!-- COLUNA ESQUERDA -->
+    <div class="col">
+
+      <section class="card">
+        <h2>Atributos</h2>
+        <div class="grid-2">
+          <div class="campo"><label>FOR</label><input type="number"></div>
+          <div class="campo"><label>AGI</label><input type="number"></div>
+          <div class="campo"><label>INT</label><input type="number"></div>
+          <div class="campo"><label>CAR</label><input type="number"></div>
+          <div class="campo"><label>VIG</label><input type="number"></div>
+          <div class="campo"><label>PRE</label><input type="number"></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Status</h2>
+        <div class="grid-2">
+          <div class="campo"><label>PS</label><input type="number"></div>
+          <div class="campo"><label>SAN</label><input type="number"></div>
+          <div class="campo"><label>DS</label><input type="number"></div>
+          <div class="campo"><label>Defesa</label><input type="number"></div>
+        </div>
+      </section>
+
+      <!-- ARQUÉTIPO -->
+      <section class="card arquetipo-card">
+        <h2>Arquétipo</h2>
+
+        <div class="arquetipo-grid">
+          <div class="campo">
+            <label>Nome</label>
+            <input type="text" placeholder="Ex: Guardião do Fluxo">
+          </div>
+
+          <div class="campo">
+            <label>Bônus</label>
+            <input type="text" placeholder="Ex: +2 em Presença contra anomalias">
+          </div>
+        </div>
+
+        <div class="campo">
+          <label>Habilidade Especial</label>
+          <textarea class="area-padrao"
+            placeholder="Descreva a habilidade concedida pelo arquétipo..."></textarea>
+        </div>
+      </section>
+
+      <!-- RITUAIS AGORA AQUI -->
+      <section class="card">
+        <h2>Rituais</h2>
+        <textarea class="area-padrao"
+          placeholder="Descreva rituais conhecidos, custo e efeitos..."></textarea>
+      </section>
+
+    </div>
+
+    <!-- COLUNA DIREITA -->
+    <div class="col">
+
+      <section class="card">
+        <h2>Perícias</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Perícia</th>
+              <th>Atr.</th>
+              <th>Nível</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Atletismo</td><td>VIG</td><td><select><option>0</option><option>+1</option><option>+3</option><option>+4</option></select></td></tr>
+            <tr><td>Luta</td><td>FOR</td><td><select><option>0</option><option>+1</option><option>+3</option><option>+4</option></select></td></tr>
+            <tr><td>Pontaria</td><td>AGI</td><td><select><option>0</option><option>+1</option><option>+3</option><option>+4</option></select></td></tr>
+            <tr><td>Furtividade</td><td>AGI</td><td><select><option>0</option><option>+1</option><option>+3</option><option>+4</option></select></td></tr>
+            <tr><td>Percepção</td><td>INT</td><td><select><option>0</option><option>+1</option><option>+3</option><option>+4</option></select></td></tr>
+            <tr><td>Investigação</td><td>INT</td><td><select><option>0</option><option>+1</option><option>+3</option><option>+4</option></select></td></tr>
+            <tr><td>Tecnologia</td><td>INT</td><td><select><option>0</option><option>+1</option><option>+3</option><option>+4</option></select></td></tr>
+            <tr><td>História Temporal</td><td>INT</td><td><select><option>0</option><option>+1</option><option>+3</option><option>+4</option></select></td></tr>
+            <tr><td>Intuição Temporal</td><td>PRE</td><td><select><option>0</option><option>+1</option><option>+3</option><option>+4</option></select></td></tr>
+            <tr><td>Diplomacia</td><td>CAR</td><td><select><option>0</option><option>+1</option><option>+3</option><option>+4</option></select></td></tr>
+            <tr><td>Enganação</td><td>CAR</td><td><select><option>0</option><option>+1</option><option>+3</option><option>+4</option></select></td></tr>
+            <tr><td>Intimidação</td><td>PRE</td><td><select><option>0</option><option>+1</option><option>+3</option><option>+4</option></select></td></tr>
+            <tr><td>Sobrevivência</td><td>VIG/INT</td><td><select><option>0</option><option>+1</option><option>+3</option><option>+4</option></select></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Habilidades</h2>
+        <h3>Passivas</h3>
+        <textarea class="area-padrao"></textarea>
+        <h3>Ativas</h3>
+        <textarea class="area-padrao"></textarea>
+      </section>
+
+    </div>
+
+  </div>
+
+  <footer class="rodape">
+    Sistema Temporal Monitorado
+  </footer>
+
+</div>
+
+<script>
+
+// ===============================
+// SALVAMENTO AUTOMÁTICO DA FICHA
+// ===============================
+
+const campos = document.querySelectorAll("input, textarea, select");
+
+// CARREGAR DADOS SALVOS
+window.addEventListener("load", () => {
+  campos.forEach((campo, index) => {
+    const valorSalvo = localStorage.getItem("ficha_" + index);
+    if (valorSalvo !== null) {
+      campo.value = valorSalvo;
+    }
+  });
+});
+
+// SALVAR AUTOMATICAMENTE AO DIGITAR
+campos.forEach((campo, index) => {
+  campo.addEventListener("input", () => {
+    localStorage.setItem("ficha_" + index, campo.value);
+  });
+});
+
+</script>
+
+</body>
+</html>
